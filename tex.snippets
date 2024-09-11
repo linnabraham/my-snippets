@@ -10,7 +10,13 @@ endsnippet
 snippet handy "packages and configurations that are handy"
 % annotation support
 \usepackage[pdftex,dvipsnames]{xcolor}
-\usepackage{hyperref}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{
+    colorlinks, % to avoid boxes around links and instead have links just colored
+    linkcolor={blue},
+    urlcolor={blue},
+    citecolor={red}
+}
 \usepackage{xargs}
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 \newcommandx{\info}[2][1=]{\todo[linecolor=violet,backgroundcolor=violet!25,bordercolor=violet,#1]{#2}}
