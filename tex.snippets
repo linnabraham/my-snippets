@@ -1,4 +1,50 @@
 
-snippet col "Insert colored text"
+snippet teal "Insert teal colored text"
 \textcolor{${1:teal}}{${2:}}
+endsnippet
+
+snippet pac "usepackage - removes square braces if options removed" b
+\usepackage`!p snip.rv='[' if t[1] else ""`${1:options}`!p snip.rv = ']' if t[1] else ""`{${2:package}}$0
+endsnippet
+
+snippet handy "packages and configurations that are handy"
+% annotation support
+\usepackage[pdftex,dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage{xargs}
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommandx{\info}[2][1=]{\todo[linecolor=violet,backgroundcolor=violet!25,bordercolor=violet,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improve}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+
+% citation support
+\usepackage[backend=biber]{biblatex}
+\addbibresource{zotero.bib}
+\newrobustcmd*{\citefirstlastauthor}{\AtNextCite{\DeclareNameAlias{labelname}{given-family}}\citeauthor}
+\newcommand{\citetitlebyauthor}[2][]{
+    \citetitle{#2} by \citefirstlastauthor[#1]{#2}
+}
+endsnippet
+
+snippet tmplt "Template"
+	\\documentclass{${1:article}}
+
+	\\usepackage{import}
+	\\usepackage{pdfpages}
+	\\usepackage{transparent}
+	\\usepackage{xcolor}
+	$2
+	
+	\\newcommand{\incfig}[2][1]{%
+		    \def\svgwidth{#1\columnwidth}
+		    \import{./figures/}{#2.pdf_tex}
+	}
+	$3
+	\\pdfsuppresswarningpagegroup=1
+	
+	\\begin{document}
+		    $0
+	\\end{document}
 endsnippet
