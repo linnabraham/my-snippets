@@ -24,10 +24,9 @@ snippet handy "packages and configurations that are handy"
 \newcommandx{\unsure}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
 \newcommandx{\improve}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
 \newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
-
-% citation support
 \usepackage[backend=biber]{biblatex}
 \addbibresource{zotero.bib}
+% have title and author's full name appear in in-text citation
 \newrobustcmd*{\citefirstlastauthor}{\AtNextCite{\DeclareNameAlias{labelname}{given-family}}\citeauthor}
 \newcommand{\citetitlebyauthor}[2][]{
     \citetitle{#2} by \citefirstlastauthor[#1]{#2}
@@ -53,4 +52,12 @@ snippet tmplt "Template"
 	\\begin{document}
 		    $0
 	\\end{document}
+endsnippet
+
+snippet h1 "heading level 1"
+{\LARGE \textbf{$0} }\\\
+endsnippet
+
+snippet vs "vertical space"
+\vspace{$0 \baselineskip}
 endsnippet
