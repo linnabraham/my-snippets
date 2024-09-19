@@ -61,3 +61,14 @@ endsnippet
 snippet vs "vertical space"
 \vspace{$0 \baselineskip}
 endsnippet
+
+snippet fig "figure environment (includegraphics)"
+	\\begin{figure}
+	\\begin{center}
+		\\includegraphics[scale=${1}]{Figures/${2}}
+	\\end{center}
+	\\caption{${3}}
+	\\label{fig:${4}}
+	\\end{figure}
+	${0}
+endsnippet
