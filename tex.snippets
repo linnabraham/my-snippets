@@ -77,6 +77,41 @@ $3
 \\end{document}
 endsnippet
 
+snippet book "Book Template"
+\\documentclass[anyside, openany]{book}
+
+\\usepackage{import}
+\\usepackage{pdfpages}
+\\usepackage{transparent}
+\usepackage[pdftex,dvipsnames]{xcolor}
+\usepackage[colorlinks]{hyperref}
+\hypersetup{
+    colorlinks, % to avoid boxes around links and instead have links just colored
+    linkcolor={blue},
+    urlcolor={blue},
+    citecolor={red}
+}
+\usepackage{xargs}
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommandx{\info}[2][1=]{\todo[linecolor=violet,backgroundcolor=violet!25,bordercolor=violet,#1]{#2}}
+\newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\improve}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+\newcommandx{\thiswillnotshow}[2][1=]{\todo[disable,#1]{#2}}
+$2
+
+\\newcommand{\incfig}[2][1]{%
+	    \def\svgwidth{#1\columnwidth}
+	    \import{./figures/}{#2.pdf_tex}
+}
+$3
+\\pdfsuppresswarningpagegroup=1
+
+\\begin{document}
+	    $0
+\\end{document}
+endsnippet
+
 
 snippet tmplt "Template"
 \\documentclass{${1:article}}
