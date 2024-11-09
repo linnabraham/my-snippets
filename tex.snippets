@@ -120,12 +120,20 @@ snippet tmplt "Template"
 \\usepackage{pdfpages}
 \\usepackage{transparent}
 \\usepackage{xcolor}
+\usepackage[colorlinks]{hyperref}
 $2
 
 \\newcommand{\incfig}[2][1]{%
 	    \def\svgwidth{#1\columnwidth}
 	    \import{./figures/}{#2.pdf_tex}
 }
+\hypersetup{
+    colorlinks, % to avoid boxes around links and instead have links just colored
+    linkcolor={blue},
+    urlcolor={blue},
+    citecolor={red}
+}
+
 $3
 \\pdfsuppresswarningpagegroup=1
 
